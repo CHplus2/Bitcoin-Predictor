@@ -52,7 +52,7 @@ st.markdown("*LSTM-based short-term prediction with buy/sell/tp/sl logic*")
 
 # ============ Load Model & Data ============
 model = load_model("lstm_model.h5")
-btc_data = yf.download('BTC-USD', start='2023-07-17', end='2026-07-17')[['Close']].dropna()
+btc_data = yf.download('BTC-USD', period='90d', interval='1d')[['Close']].dropna()
 
 scaler = MinMaxScaler()
 btc_data['Close_scaled'] = scaler.fit_transform(btc_data[['Close']])
